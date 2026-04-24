@@ -6,22 +6,40 @@ Codigo fuente: UNAD, adaptacion del estudiante.
 """
 VENTAS_POR_MES = {"enero": 1500, "febrero": 2200, "marzo": 1800}
 LIMITE_BONO = 5000
-#Solicita nombre, mes actual y una cantidad vendida para almacenamiento.
+MESES_VALIDOS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+# Solicita y valida nombre, mes actual y una cantidad vendida para almacenamiento.
 def solicitar_datos():
     """Solicita un nombre, mes actual y una cantidad vendida."""
-    nombre_vendedor = input("Ingrese su nombre: ")
-    try:
-        mes_actual=input("Ingrese el mes actulal: ")
-        cantidad_nueva = int(input(f"Ingrese las ventas de {mes_actual}: "))
-    except:
-        print("Entrada inválida, usando 0.")
-        cantidad_nueva = 0
+    while True:
+        nombre_vendedor = input("Ingrese su nombre: ").strip()
+        if nombre_vendedor.isalpha():
+            break
+        print("Nombre inválido. Intente nuevamente.")
+
+    while True:
+        mes_actual = input("Ingrese el mes actual: ").strip().lower()
+        if mes_actual in MESES_VALIDOS:
+            break
+        print("Mes inválido. Use uno de estos meses: enero, febrero, ..., diciembre.")
+
+    while True:
+        try:
+            cantidad_nueva = int(input(f"Ingrese las ventas de {mes_actual}: "))
+            if cantidad_nueva >= 0:
+                break
+            print("Las ventas deben ser un número positivo. Intente nuevamente.")
+        except ValueError:
+            print("Entrada inválida. Ingrese un número entero para las ventas.")
+
     return nombre_vendedor, cantidad_nueva, mes_actual
+
 #Agrega la venta al diccionario de ventas y lo devuelve actualiazado
 def agregar_ventas(datos_actuales, mes, monto):
     """Agrega un nuevo mes de ventas al diccionario."""
     datos_actuales[mes] = monto
     return list(datos_actuales.values())
+
 #Revisa si las ventas totales son suficientes para el bono y calcula su valor si es así.
 def revisar_bono(ventas_totales, limite, nuevas_ventas):
     """Verifica si el vendedor califica para un bono."""
@@ -34,6 +52,7 @@ def revisar_bono(ventas_totales, limite, nuevas_ventas):
 ________________________________________________________________""")
     else:
         print("Siga esforzándose para el bono.")
+        
 #Imprime resumen por pantalla.        
 while True:
     try:
