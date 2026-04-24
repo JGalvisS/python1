@@ -6,6 +6,7 @@ Codigo fuente: UNAD, adaptacion del estudiante.
 """
 VENTAS_POR_MES = {"enero": 1500, "febrero": 2200, "marzo": 1800}
 LIMITE_BONO = 5000
+#Solicita nombre y ventas del mes de abril para almacenamiento.
 def solicitar_datos():
     """Solicita un nombre y una cantidad al usuario."""
     nombre_vendedor = input("Ingrese su nombre: ")
@@ -15,29 +16,32 @@ def solicitar_datos():
         print("Entrada inválida, usando 0.")
         cantidad_nueva = 0
     return nombre_vendedor, cantidad_nueva
-
+#Agrega la venta al diccionario de ventas y lo devuelve actualiazado
 def agregar_ventas(datos_actuales, mes, monto):
     """Agrega un nuevo mes de ventas al diccionario."""
     datos_actuales[mes] = monto
     return list(datos_actuales.values())
-
-
-def revisar_bono(ventas_totales, limite):
-    #Verifica si el vendedor califica para un bono.
-    if ventas_totales > limite:
-        monto_bono = ventas_totales / limite
-        print(f"¡Felicidades! Gana un bono de: {monto_bono}")
+#Revisa si las ventas totales son suficientes para el bono y calcula su valor si es así.
+def revisar_bono(ventas_totales, limite, nuevas_ventas):
+    """Verifica si el vendedor califica para un bono."""
+    numero_meses = 4  # enero, febrero, marzo, abril
+    promedio_ventas = ventas_totales / numero_meses
+    if promedio_ventas >= limite:
+        monto_bono = int(nuevas_ventas * 0.30)
+        print(f"¡Felicidades! Ganaste un bono de: {monto_bono}")
     else:
         print("Siga esforzándose para el bono.")
-        
-contador = 1
-while contador < 3:
-    print(f"\n--- Iteración {contador} ---")
-    vendedor, nuevas_ventas = solicitar_datos()
-    VENTAS_POR_MES_NUEVO = agregar_ventas(VENTAS_POR_MES, "abril", nuevas_ventas)
-    total_anual = sum(VENTAS_POR_MES_NUEVO)
+#Imprime resumen por pantalla.        
+while True:
     try:
-        revisar_bono(total_anual, LIMITE_BONO_INCORRECTO)
-        print(f"Ventas de {vendedor}: {total_anual}. Ventas de mayo: {VENTAS_POR_MES['mayo']}")
+        vendedor, nuevas_ventas = solicitar_datos()
+        VENTAS_POR_MES_NUEVO = agregar_ventas(VENTAS_POR_MES, "abril", nuevas_ventas)
+        total_anual = sum(VENTAS_POR_MES_NUEVO)
+        revisar_bono(total_anual, LIMITE_BONO, nuevas_ventas)#linea corregida: nombre de variable LIMITE_BONO_INCORRECTO
+        print(f"RESUMEN DE VENTAS:\nVendedor: {vendedor}")
+        for mes, ventas in VENTAS_POR_MES.items():
+            print(f"Ventas de {mes}: {ventas}")
+        print(f"Total ventas anual: {total_anual}")
+        break
     except Exception as e:
-        print("Ocurrió un problema en el cálculo final.")
+        print("Ocurrió un problema, intentando de nuevo.")
