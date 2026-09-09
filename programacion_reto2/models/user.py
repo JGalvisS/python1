@@ -23,20 +23,24 @@ class User:
             print(f"User {new_user.user} created successful ")
         else:
             print("This user is registered")
+        if found_user==True:
+            return False
     #Validate user and password
-    def validate_user(user, password):
+    def validate_user(self,user, password):
+        credential_validates=False
         for i in USERS:
             if i["user"]== user and i["password"]== password:
-                print("User validation done successful")
-                return True
+                print("User validation was done successful")
+                credential_validates=True
+                return credential_validates
             else:
                 print("Check your user and password data")
-                return False
-                
-        
-
+                return credential_validates
+                        
+"""
 user1=User.create_user("user1",123456)
 user2=User.create_user("user1",123)
 print(f"{USERS}")
 User.validate_user("user1",123456)
 User.validate_user("user1",123)
+"""
