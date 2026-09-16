@@ -11,36 +11,34 @@ class User:
     def __init__(self, user, password):
         self.user=user
         self.password=password
+        
     #Create an new user checking if there isn't one equal 
-    def create_user(user, password):
+    def create_user(self, user, password):
         found_user=False
         for i in USERS:
             if i["user"] == user:
-                found_user=True 
-        if found_user ==False:    
-            new_user=User(user,password)
+                found_user=True
+                print("This user is already registered")
+                return False
+        if found_user ==False: 
             USERS.append({"user":user,"password":password})
-            print(f"User {new_user.user} created successful ")
-        else:
-            print("This user is registered")
-        if found_user==True:
-            return False
+            print(f"The user {user} was created successful.")
+            return True
     #Validate user and password
     def validate_user(self,user, password):
-        credential_validates=False
         for i in USERS:
             if i["user"]== user and i["password"]== password:
                 print("User validation was done successful")
-                credential_validates=True
-                return credential_validates
-            else:
-                print("Check your user and password data")
-                return credential_validates
-                        
-"""
-user1=User.create_user("user1",123456)
-user2=User.create_user("user1",123)
-print(f"{USERS}")
-User.validate_user("user1",123456)
-User.validate_user("user1",123)
+                return True
+        return False
+
+
+"""                       
+user1=User("user1",123456)
+user1.create_user(user1.user,user1.password)
+#user2=User.create_user("user2",123)
+
+
+#User.validate_user("user1",123456)
+#User.validate_user("user1",123)
 """

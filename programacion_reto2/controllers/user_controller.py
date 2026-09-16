@@ -15,7 +15,8 @@ class User_controller:
             return
 
         try:
-            created = User.create_user(username, password)
+            new_user=User(username,password)
+            created=new_user.create_user(username,password)
         except Exception as error:
             messagebox.showerror("Registration error", str(error))
             return

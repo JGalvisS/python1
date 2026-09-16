@@ -117,7 +117,7 @@ ttk.Label(
 
 ttk.Label(
     main_frame,
-    text="Our price is the best $5000COP a hour",
+    text="Our price is the best $5000COP an hour.",
     font=("Arial", 12)
 ).pack(pady=10)
 

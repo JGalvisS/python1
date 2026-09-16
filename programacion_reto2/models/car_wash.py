@@ -25,7 +25,7 @@ class Car_wash:
                 return True
         if found_car == False:
             CARS.append({"license_plate":self.license_plate,"ingress_time":ingress_time})
-            print(f"Welcome to our car wash \nIngress time: {ingress_time} has been register successful in license car plate {self.license_plate}.")
+            print(f"Ingress time: {ingress_time} has been register successful in license car plate {self.license_plate}.")
             successful_ingress=True
             return True
         elif successful_ingress==False:
@@ -37,12 +37,16 @@ class Car_wash:
         for i in CARS:
             if i["license_plate"]==license_plate:
                 found_car=True
-                i["pickup_time"]=pickup_time
-                print(f"Pick up time : {pickup_time} has been register successful in car license plate {license_plate}. ")
+                if pickup_time <= i["ingress_time"]:
+                    print(f"Time that you try to register is before than enter time registered in plate {license_plate}")
+                    return False
+                else:
+                    i["pickup_time"]=pickup_time
+                    print(f"Pick up time : {pickup_time} has been register successful in car license plate {license_plate}. ")
+                    return True
+            else:
                 return found_car
-        if found_car == False:
-            print(f"Register pick up time unsuccessful, the car license plate {license_plate} couldn't be find.")
-            return found_car
+
     #Calculate the charge
     def calculate_charge(self):
         enough_date=False
@@ -96,11 +100,12 @@ print(CARS)
 car2.ingress_register(datetime.now())
 car1.ingress_register(datetime.now())
 print(CARS)
-car2.pickup_register(datetime.now()+timedelta(hours=3))
-car3.pickup_register(datetime.now())
+car2.pickup_register(datetime.now()+timedelta(hours=3,),"JDJ636")
+car1.pickup_register(datetime.now()-timedelta(hours=1),"SRF123")
+car3.pickup_register(datetime.now(),"PSJ455")
 print(CARS)
 car2.calculate_charge()
 car3.calculate_charge()
 print(CARS)
 car3.get_licence_plate()
-""" 
+"""

@@ -41,12 +41,13 @@ class Car_wash_controller:
             return
         try:
             car_exit=Car_wash(plate)
-            car_exit.pickup_register(datetime.now(),plate)
-            #car_exit.pickup_register(datetime.now()+timedelta(hours=10),plate)
-        except Exception:
+            if car_exit.pickup_register(datetime.now(),plate) is False:
+            #if car_exit.pickup_register(datetime.now()-timedelta(hours=10),plate) is False:
+                raise error
+        except Exception as error:
             messagebox.showerror(
                 "Registration exit car time error",
-                f"the car license plate {plate} couldn't be find ." 
+                f"the car license plate couldn't be find or exit car time is before than ingress car registered." 
             )
         else:
             messagebox.showinfo(

@@ -1,4 +1,8 @@
-
+## Estudiante
+- Nombre: Jessica Katherine Galvis Silva
+- Grupo: 213023_493
+- Programa: Ingenieria de sistemas
+## Descripción
 Antes de acceder a cualquiera de los sistemas descritos en los ejercicios, el estudiante debe implementar un módulo de inicio de sesión (login) que valide un usuario que es programación y una contraseña que es programación.
 Para esto, debe crearse una clase llamada Usuario, con:
 •Atributos privados: _usuario y _password.
@@ -17,3 +21,42 @@ El sistema debe:
 •Permitir seleccionar un auto para registrar la salida.
 •Calcular el costo automáticamente.
 •Validar la hora de salida.
+## Estructura del proyecto
+```
+programacion_reto2/
+├── main.py
+├── controllers/
+│   ├── car_wash_controller.py
+│   └── user_controller.py
+├── models/
+│   ├── car_wash.py
+│   └── user.py
+└── README.md
+```
+## Cómo ejecutar
+1. Abre una terminal en la carpeta del proyecto.
+2. Ejecuta:
+
+```bash
+python main.py
+```
+
+Si estás trabajando en Windows, el comando puede ser:
+
+```bash
+cd c:\programacion_reto2
+python main.py
+```
+
+## Cómo usar
+1. En la pantalla de inicio de sesión, escribe:
+   - Usuario: programacion
+   - Contraseña: programacion
+2. Presiona Login.
+3. En la pantalla principal, usa los botones del sistema de control de lavado de autos.
+
+## Notas
+El proyecto se ha organizado usando la idea de MVC:
+- Models: gestionan los datos y las reglas de validación.
+- Controllers: conectan la vista con el modelo.
+- Main view: muestra la interfaz Tkinter.
