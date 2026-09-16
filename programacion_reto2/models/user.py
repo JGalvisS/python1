@@ -5,7 +5,7 @@ Programa: Ingenieria de Sistemas
 Codigo fuente: autoria propia
 """
 #User register
-USERS=[]
+USERS=[{'user': 'programación', 'password': 'programación'}]
 class User:
     #Constructor
     def __init__(self, user, password):

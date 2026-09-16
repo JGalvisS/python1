@@ -44,8 +44,9 @@ class Car_wash:
                     i["pickup_time"]=pickup_time
                     print(f"Pick up time : {pickup_time} has been register successful in car license plate {license_plate}. ")
                     return True
-            else:
-                return found_car
+        if found_car==False:
+            print(f"The license plate {license_plate} couldn't be find ")    
+            return found_car
 
     #Calculate the charge
     def calculate_charge(self):

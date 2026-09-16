@@ -47,7 +47,7 @@ class Car_wash_controller:
         except Exception as error:
             messagebox.showerror(
                 "Registration exit car time error",
-                f"the car license plate couldn't be find or exit car time is before than ingress car registered." 
+                f"the car license plate couldn't be find or exit car time is before than ingress car time registered." 
             )
         else:
             messagebox.showinfo(
