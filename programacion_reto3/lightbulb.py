@@ -34,14 +34,17 @@ class Lightbulb(Device):
                 i["mode"]=self.mode
                 i["brightness"]=self.brightness
                 successful=True
+                break
             elif found_lightbulb==False:
                 successful
         return successful
             
-
+"""
 print(LIGHTBULB)
-bombilla=Lightbulb("living room")
+bombilla=Lightbulb("living room",None,"white",20)
 bombilla.turn_off()
+bombilla.configure_lightbulb()
 print(LIGHTBULB)
 #lista=bombilla.get_status()
 #print(lista)
+"""
