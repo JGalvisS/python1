@@ -1,3 +1,9 @@
+"""
+Nombre del estudiante: Jessica Katherine Galvis Silva
+Grupo: 213023_493
+Programa: Ingenieria de Sistemas
+Codigo fuente: autoria propia
+"""
 from device import Device
 LIGHTBULB=[{"name":"room1","state":True,"mode":"warm","brightness":50},
         {"name":"room2","state":False,"mode":"white","brightness":100},
@@ -9,21 +15,33 @@ class Lightbulb(Device):
         self.mode=_mode
         self.brightness=_brightness
     #Turn on a lightbulb
-    def turn_on(self, name):
-        return super().turn_on(name, LIGHTBULB)
+    def turn_on(self):
+        return super().turn_on(LIGHTBULB)
     #Turn off a lightbulb
-    def turn_off(self, name):
-        return super().turn_off(name, LIGHTBULB)
+    def turn_off(self):
+        return super().turn_off(LIGHTBULB)
     #get light bulbs status
     def get_status(self):
         return super().get_status(LIGHTBULB)
     #configure a Lightbulb
-""" 
-print(LIGHTBULB)
-bombilla=Lightbulb("room1")
-bombilla.turn_off(bombilla.name)
-print(LIGHTBULB)
-lista=bombilla.get_status()
-print(lista)
+    def configure_lightbulb(self):
+        successful=False
+        found_lightbulb=False
+        for i in LIGHTBULB:
+            if i["name"]==self.name:
+                found_lightbulb=True
+            if found_lightbulb==True:
+                i["mode"]=self.mode
+                i["brightness"]=self.brightness
+                successful=True
+            elif found_lightbulb==False:
+                successful
+        return successful
+            
 
-""" 
+print(LIGHTBULB)
+bombilla=Lightbulb("living room")
+bombilla.turn_off()
+print(LIGHTBULB)
+#lista=bombilla.get_status()
+#print(lista)
