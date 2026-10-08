@@ -8,7 +8,8 @@ from device import Device
 from datetime import time
 CURTAIN=[{"name":"room1","state":True,"turn_on_time":time(7, 0, 0,),"turn_off_time":time(18, 0, 0,)},
         {"name":"room2","state":False,"turn_on_time":time(6, 0, 0,),"turn_off_time":time(17, 0, 0,)},
-        {"name":"living room","state":False,"turn_on_time":"","turn_off_time":""}]
+        {"name":"living room","state":False,"turn_on_time":"","turn_off_time":""},
+        {"name":"room3","state":True,"turn_on_time":"","turn_off_time":""}]
 class Curtain(Device):
     #Constructor
     def __init__(self, _name, _state = False,_turn_on_time:time=None,_turn_off_time:time=None):
@@ -17,10 +18,10 @@ class Curtain(Device):
         self.turn_off_time=_turn_off_time
     #Open curtain
     def turn_on(self,name:str=None):
-        return super().turn_on(CURTAIN)
+        return super().turn_on(name,CURTAIN)
     #Close curtain
     def turn_off(self,name:str=None):
-        return super().turn_off(CURTAIN)
+        return super().turn_off(name,CURTAIN)
     #Get curtains status
     def get_status(self):
         return super().get_status(CURTAIN)

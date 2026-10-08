@@ -7,7 +7,8 @@ Codigo fuente: autoria propia
 from device import Device
 LIGHTBULB=[{"name":"room1","state":True,"mode":"warm","brightness":50},
         {"name":"room2","state":False,"mode":"white","brightness":100},
-        {"name":"living room","state":False,"mode":"","brightness":0}]
+        {"name":"living room","state":False,"mode":"","brightness":0},
+        {"name":"room3","state":True,"mode":"","brightness":0}]
 class Lightbulb(Device):
     #Constructor
     def __init__(self, _name, _state:bool=False,_mode:str="",_brightness:float=0):
@@ -16,10 +17,10 @@ class Lightbulb(Device):
         self.brightness=_brightness
     #Turn on a lightbulb
     def turn_on(self,name:str=None):
-        return super().turn_on(LIGHTBULB)
+        return super().turn_on(name,LIGHTBULB)
     #Turn off a lightbulb
     def turn_off(self,name:str=None):
-        return super().turn_off(LIGHTBULB)
+        return super().turn_off(name,LIGHTBULB)
     #get light bulbs status
     def get_status(self):
         return super().get_status(LIGHTBULB)

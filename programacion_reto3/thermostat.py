@@ -8,7 +8,8 @@ from device import Device
 from datetime import time
 THERMOSTAT=[{"name":"room1","state":True,"temperature":22,"turn_on_time":time(18, 0, 0,),"turn_off_time":time(5, 0, 0,)},
         {"name":"room2","state":False,"temperature":27,"turn_on_time":time(17, 0, 0,),"turn_off_time":time(4, 0, 0,)},
-        {"name":"living room","state":False,"temperature":0,"turn_on_time":"","turn_off_time":""}]
+        {"name":"living room","state":False,"temperature":0,"turn_on_time":"","turn_off_time":""},
+        {"name":"room3","state":True,"temperature":0,"turn_on_time":"","turn_off_time":""}]
 class Thermostat(Device):
     #Constructor
     def __init__(self, _name, _state = False,_temperature:float=0,_turn_on_time:time=None,_turn_off_time:time=None):
@@ -18,10 +19,10 @@ class Thermostat(Device):
         self.turn_off_time=_turn_off_time
     #Turn on thermostat
     def turn_on(self,name:str=None):
-        return super().turn_on(THERMOSTAT)
+        return super().turn_on(name,THERMOSTAT)
     #Turn off a thermostat
     def turn_off(self,name:str=None):
-        return super().turn_off(THERMOSTAT)
+        return super().turn_off(name,THERMOSTAT)
     #get thermostats status
     def get_status(self):
         return super().get_status(THERMOSTAT)
@@ -44,7 +45,7 @@ class Thermostat(Device):
 """
 print(THERMOSTAT)
 thermostat=Thermostat("room2",None,16,time(23,0),time(5,0))
-thermostat.configure_thermostat()
+thermostat.turn_off("room1")
 print(THERMOSTAT)
 #lista=thermostat.get_status()
 #print(lista)
