@@ -33,6 +33,7 @@ class Curtain(Device):
             if i["name"]==self.name:
                 found_curtain=True
             if found_curtain == True:
+                i["state"]=self.state
                 i["turn_on_time"]=self.turn_on_time
                 i["turn_off_time"]=self.turn_off_time
                 successful=True

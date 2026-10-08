@@ -32,6 +32,7 @@ class Lightbulb(Device):
             if i["name"]==self.name:
                 found_lightbulb=True
             if found_lightbulb==True:
+                i["state"]=self.state
                 i["mode"]=self.mode
                 i["brightness"]=self.brightness
                 successful=True

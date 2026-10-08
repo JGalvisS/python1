@@ -34,6 +34,7 @@ class Thermostat(Device):
             if i["name"]==self.name:
                 found_thermostat=True
             if found_thermostat == True:
+                i["state"]=self.state
                 i["temperature"]=self.temperature
                 i["turn_on_time"]=self.turn_on_time
                 i["turn_off_time"]=self.turn_off_time
