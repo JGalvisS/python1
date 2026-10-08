@@ -33,9 +33,12 @@ class Curtain(Device):
             if i["name"]==self.name:
                 found_curtain=True
             if found_curtain == True:
-                i["state"]=self.state
-                i["turn_on_time"]=self.turn_on_time
-                i["turn_off_time"]=self.turn_off_time
+                if self.state != None:
+                    i["state"]=self.state
+                if self.turn_on_time != None:
+                    i["turn_on_time"]=self.turn_on_time
+                if self.turn_off_time  != None:
+                    i["turn_off_time"]=self.turn_off_time
                 successful=True
                 break
             elif found_curtain==False:
@@ -43,8 +46,8 @@ class Curtain(Device):
         return successful
 """
 print(CURTAIN)
-curtain=Curtain("living room",None,time(10,20,00),time(13,30,00))
-curtain.turn_on()
+curtain=Curtain("room3",None,time(10,20,00),time(13,30,00))
+#curtain.turn_on()
 curtain.configure_curtain()
 print(CURTAIN)
 lista=curtain.get_status()
