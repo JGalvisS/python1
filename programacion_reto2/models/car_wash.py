@@ -91,13 +91,14 @@ class Car_wash:
         print("\n".join(license_plates)) 
         return license_plates
         
-"""       
+    
 car1=Car_wash("SRF123")
 car2=Car_wash("JDJ636")
 car3=Car_wash("PSJ455")
 print(CARS)
 car1.ingress_register(datetime.now())
 print(CARS)
+"""
 car2.ingress_register(datetime.now())
 car1.ingress_register(datetime.now())
 print(CARS)

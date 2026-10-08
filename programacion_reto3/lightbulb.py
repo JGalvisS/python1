@@ -45,6 +45,6 @@ bombilla=Lightbulb("living room",None,"white",20)
 bombilla.turn_off()
 bombilla.configure_lightbulb()
 print(LIGHTBULB)
-#lista=bombilla.get_status()
-#print(lista)
+lista=bombilla.get_status()
+print(lista)
 """
