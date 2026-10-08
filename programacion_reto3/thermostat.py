@@ -34,10 +34,14 @@ class Thermostat(Device):
             if i["name"]==self.name:
                 found_thermostat=True
             if found_thermostat == True:
-                i["state"]=self.state
-                i["temperature"]=self.temperature
-                i["turn_on_time"]=self.turn_on_time
-                i["turn_off_time"]=self.turn_off_time
+                if self.state != None:
+                    i["state"]=self.state
+                if self.temperature != None:
+                    i["temperature"]=self.temperature
+                if self.turn_on_time != None:
+                    i["turn_on_time"]=self.turn_on_time
+                if self.turn_off_time  != None:
+                    i["turn_off_time"]=self.turn_off_time
                 successful=True
                 break
             elif found_thermostat==False:

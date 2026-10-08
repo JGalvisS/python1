@@ -11,7 +11,7 @@ LIGHTBULB=[{"name":"room1","state":True,"mode":"warm","brightness":50},
         {"name":"room3","state":True,"mode":"","brightness":0}]
 class Lightbulb(Device):
     #Constructor
-    def __init__(self, _name, _state:bool=False,_mode:str="",_brightness:float=0):
+    def __init__(self, _name, _state:bool=False,_mode:str="",_brightness:float=None):
         super().__init__(_name, _state)
         self.mode=_mode
         self.brightness=_brightness
@@ -32,9 +32,12 @@ class Lightbulb(Device):
             if i["name"]==self.name:
                 found_lightbulb=True
             if found_lightbulb==True:
-                i["state"]=self.state
-                i["mode"]=self.mode
-                i["brightness"]=self.brightness
+                if self.state != None:
+                    i["state"]=self.state
+                if self.mode != None:
+                    i["mode"]=self.mode
+                if self.brightness != None:
+                    i["brightness"]=self.brightness
                 successful=True
                 break
             elif found_lightbulb==False:
@@ -43,8 +46,8 @@ class Lightbulb(Device):
             
 """
 print(LIGHTBULB)
-bombilla=Lightbulb("living room",None,"white",20)
-bombilla.turn_off()
+bombilla=Lightbulb("living room")
+#bombilla.turn_off()
 bombilla.configure_lightbulb()
 print(LIGHTBULB)
 lista=bombilla.get_status()
