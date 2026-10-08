@@ -15,10 +15,10 @@ class Lightbulb(Device):
         self.mode=_mode
         self.brightness=_brightness
     #Turn on a lightbulb
-    def turn_on(self):
+    def turn_on(self,name:str=None):
         return super().turn_on(LIGHTBULB)
     #Turn off a lightbulb
-    def turn_off(self):
+    def turn_off(self,name:str=None):
         return super().turn_off(LIGHTBULB)
     #get light bulbs status
     def get_status(self):

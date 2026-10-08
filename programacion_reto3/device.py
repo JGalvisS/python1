@@ -10,27 +10,28 @@ class Device:
         self.name=_name
         self.state=_state
     #Turn on a device
-    def turn_on(self,device_list:list):
+    def turn_on(self,name:str,device_list:list):
         state=True
         successful=False
         found_device=False
         for i in device_list:
-            if i["name"]==self.name:
+            if i["name"]==name:
                 found_device=True
             if found_device==True:
                 i["state"]=state
                 successful=True
                 break
             elif found_device == False:
-                successful
+                for i in device_list:
+                    i["state"]=state
         return successful
     #Turn off a device
-    def turn_off(self,device_list:list):
+    def turn_off(self,name:str,device_list:list):
         state=False
         successful=False
         found_device=False
         for i in device_list:
-            if i["name"]==self.name:
+            if i["name"]==name:
                 found_device=True
             if found_device==True:
                 i["state"]=state

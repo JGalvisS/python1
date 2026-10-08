@@ -17,10 +17,10 @@ class Thermostat(Device):
         self.turn_on_time=_turn_on_time
         self.turn_off_time=_turn_off_time
     #Turn on thermostat
-    def turn_on(self):
+    def turn_on(self,name:str=None):
         return super().turn_on(THERMOSTAT)
     #Turn off a thermostat
-    def turn_off(self):
+    def turn_off(self,name:str=None):
         return super().turn_off(THERMOSTAT)
     #get thermostats status
     def get_status(self):
@@ -41,14 +41,14 @@ class Thermostat(Device):
             elif found_thermostat==False:
                 successful
         return successful
-    
+"""
 print(THERMOSTAT)
 thermostat=Thermostat("room2",None,16,time(23,0),time(5,0))
 thermostat.configure_thermostat()
 print(THERMOSTAT)
 #lista=thermostat.get_status()
 #print(lista)
-
+"""
 
         
         

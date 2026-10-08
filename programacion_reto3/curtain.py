@@ -16,10 +16,10 @@ class Curtain(Device):
         self.turn_on_time=_turn_on_time
         self.turn_off_time=_turn_off_time
     #Open curtain
-    def turn_on(self):
+    def turn_on(self,name:str=None):
         return super().turn_on(CURTAIN)
     #Close curtain
-    def turn_off(self):
+    def turn_off(self,name:str=None):
         return super().turn_off(CURTAIN)
     #Get curtains status
     def get_status(self):
