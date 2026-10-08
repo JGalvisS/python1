@@ -44,7 +44,7 @@ class Curtain(Device):
 """
 print(CURTAIN)
 curtain=Curtain("living room",None,time(10,20,00),time(13,30,00))
-curtain.turn_off()
+curtain.turn_on()
 curtain.configure_curtain()
 print(CURTAIN)
 lista=curtain.get_status()
