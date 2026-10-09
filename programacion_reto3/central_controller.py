@@ -24,7 +24,7 @@ class Central_controller:
         except Exception as error:
             messagebox.showerror("Error", "Turn on devices error")
         else:
-            messagebox.showinfo("Turn on successful", "Turn on devices successfully")
+            messagebox.showinfo("Turn on successful", "Turn on all devices successfully")
     #Turn off all devices
     @staticmethod
     def turn_off_all():
@@ -38,7 +38,7 @@ class Central_controller:
         except Exception as error:
             messagebox.showerror("Error", "Turn off devices error")
         else:
-            messagebox.showinfo("Turn off successful", "Turn off devices successfully")
+            messagebox.showinfo("Turn off successful", "Turn off all devices successfully")
     #Get status all devices
     @staticmethod
     def get_status_all():
