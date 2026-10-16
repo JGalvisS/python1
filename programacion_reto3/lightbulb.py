@@ -10,18 +10,18 @@ LIGHTBULB=[{"name":"room1","state":True,"mode":"warm","brightness":50},
         {"name":"living room","state":False,"mode":"","brightness":0},
         {"name":"room3","state":True,"mode":"","brightness":0}]
 class Lightbulb(Device):
-    #Constructor
+    #Constructor using method overriding because redefine the behavior of the method in the parent class
     def __init__(self, _name, _state:bool=False,_mode:str="",_brightness:float=None):
         super().__init__(_name, _state)
         self.mode=_mode
         self.brightness=_brightness
-    #Turn on a lightbulb
+    #Turn on a lightbulb using overriding because refines the behavior of the method in the parent class
     def turn_on(self,name:str=None):
         return super().turn_on(name,LIGHTBULB)
-    #Turn off a lightbulb
+    #Turn off a lightbulb using overriding because refines the behavior of the method in the parent class
     def turn_off(self,name:str=None):
         return super().turn_off(name,LIGHTBULB)
-    #get light bulbs status
+    #get light bulbs status using overriding because refines the behavior of the method in the parent class
     def get_status(self):
         return super().get_status(LIGHTBULB)
     #configure a Lightbulb

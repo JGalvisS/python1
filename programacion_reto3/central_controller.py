@@ -66,7 +66,7 @@ class Central_controller:
         else:
             messagebox.showinfo("System status successful", 
                                 f"System status devices successfully:\n{final_message}")
-    #Configure a curtain
+    #Configure a curtain using method overloading because its behavior uses optional parameters that allow to configure the curtain in different ways
     @staticmethod
     def configure_curtain(name:str,state:bool=None,turn_on_time_h:int=None,turn_on_time_m:int=None,turn_off_time_h:int=None,turn_off_time_m:int=None):
         try:
@@ -84,7 +84,7 @@ class Central_controller:
             messagebox.showerror("Error", "The curtain configure couldn't be completed")
         else:
             messagebox.showinfo("The curtain configure successful",f"The  {name} curtain was configured successfully")
-    #Configure a lightbulb
+    #Configure a lightbulb using method overloading because its behavior uses optional parameters that allow to configure the lightbulb in different ways
     @staticmethod
     def configure_lightbulb(name:str,state:bool=None,mode:str=None,brightness:float=None):
         try:
@@ -101,7 +101,7 @@ class Central_controller:
             messagebox.showerror("Error", "The lightbulb configure couldn't be completed")
         else:
             messagebox.showinfo("The lightbulb configure successful",f"The {name} lightbulb was configured successfully")
-    #Configure a thermostat
+    #Configure a thermostat using method overloading because its behavior uses optional parameters that allow to configure the thermostat in different ways
     @staticmethod
     def configure_thermostat (name:str,state:bool=None,temperature:float=None,turn_on_time_h:int=None,turn_on_time_m:int=None,turn_off_time_h:int=None,turn_off_time_m:int=None):
         try:

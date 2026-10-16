@@ -11,19 +11,19 @@ THERMOSTAT=[{"name":"room1","state":True,"temperature":22,"turn_on_time":time(18
         {"name":"living room","state":False,"temperature":0,"turn_on_time":"","turn_off_time":""},
         {"name":"room3","state":True,"temperature":0,"turn_on_time":"","turn_off_time":""}]
 class Thermostat(Device):
-    #Constructor
+    #Constructor using method overriding because redefine the behavior of the method in the parent class
     def __init__(self, _name, _state = False,_temperature:float=0,_turn_on_time:time=None,_turn_off_time:time=None):
         super().__init__(_name, _state)
         self.temperature=_temperature
         self.turn_on_time=_turn_on_time
         self.turn_off_time=_turn_off_time
-    #Turn on thermostat
+    #Turn on thermostat using overriding because refines the behavior of the method in the parent class
     def turn_on(self,name:str=None):
         return super().turn_on(name,THERMOSTAT)
-    #Turn off a thermostat
+    #Turn off a thermostat using overriding because refines the behavior of the method in the parent class
     def turn_off(self,name:str=None):
         return super().turn_off(name,THERMOSTAT)
-    #get thermostats status
+    #get thermostats status using overriding because refines the behavior of the method in the parent class
     def get_status(self):
         return super().get_status(THERMOSTAT)
     #configure thermostat

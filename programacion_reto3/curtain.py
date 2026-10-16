@@ -11,18 +11,18 @@ CURTAIN=[{"name":"room1","state":True,"turn_on_time":time(7, 0, 0,),"turn_off_ti
         {"name":"living room","state":False,"turn_on_time":"","turn_off_time":""},
         {"name":"room3","state":True,"turn_on_time":"","turn_off_time":""}]
 class Curtain(Device):
-    #Constructor
+    #Constructor using method overriding because redefine the behavior of the method in the parent class
     def __init__(self, _name, _state = False,_turn_on_time:time=None,_turn_off_time:time=None):
         super().__init__(_name, _state)
         self.turn_on_time=_turn_on_time
         self.turn_off_time=_turn_off_time
-    #Open curtain
+    #Open curtain using overriding because refines the behavior of the method in the parent class
     def turn_on(self,name:str=None):
         return super().turn_on(name,CURTAIN)
-    #Close curtain
+    #Close curtain using overriding because refines the behavior of the method in the parent class
     def turn_off(self,name:str=None):
         return super().turn_off(name,CURTAIN)
-    #Get curtains status
+    #Get curtains status using overriding because refines the behavior of the method in the parent class
     def get_status(self):
         return super().get_status(CURTAIN)
     #Configure a curtain
