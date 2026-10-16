@@ -123,8 +123,22 @@ class Central_controller:
             messagebox.showerror("Error", "The thermostat configure couldn't be completed")
         else:
             messagebox.showinfo("The thermostat configure successful",f"The {name} thermostat was configured successfully")
-    
+    #Controller test let user check the system is working successfully and implemented polymorphism. 
+    @staticmethod
+    def controller_test():
+        try:
+            device_list=[Curtain("room1"),Lightbulb("room2"),Thermostat("room2"),Curtain("living room")]
+            message = "SYSTEM TEST (polymorphic behavior)\n\n"
+            for i in device_list:
+                type_class=type(i).__name__
+                name=i.name
+                status=i.get_status(name)
+                message += f"• The class {type_class} was called to get status {name} and it got {status}\n\n"
+            messagebox.showinfo("Polymorphism Evidence", message)
+        except Exception as error:
+            messagebox.showerror("Error", f"polymorphism error: {error}")
                 
+            
 
             
 #Central_controller.turn_on_all()
@@ -133,3 +147,4 @@ class Central_controller:
 #Central_controller.configure_lightbulb("room3",None,"warm",80)
 #Central_controller.configure_thermostat ("room3",None,None,None,None,21,58)
 #Central_controller.get_status_all()
+Central_controller.controller_test()

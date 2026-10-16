@@ -21,9 +21,15 @@ class Lightbulb(Device):
     #Turn off a lightbulb using overriding because refines the behavior of the method in the parent class
     def turn_off(self,name:str=None):
         return super().turn_off(name,LIGHTBULB)
-    #get light bulbs status using overriding because refines the behavior of the method in the parent class
-    def get_status(self):
-        return super().get_status(LIGHTBULB)
+    #get light bulbs status using overriding because refines the behavior of the method in the parent class and
+    # using method overloading because its behavior uses optional parameters that allow to get_status works in different ways
+    def get_status(self,name:str= None):
+        if name == None:
+            return super().get_status(LIGHTBULB)
+        if name!=None:
+            for i in LIGHTBULB: 
+                if i["name"]==name:
+                    return i
     #configure a Lightbulb
     def configure_lightbulb(self):
         successful=False

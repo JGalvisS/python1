@@ -6,6 +6,7 @@ Codigo fuente: autoria propia
 """
 from device import Device
 from datetime import time
+from typing import overload
 CURTAIN=[{"name":"room1","state":True,"turn_on_time":time(7, 0, 0,),"turn_off_time":time(18, 0, 0,)},
         {"name":"room2","state":False,"turn_on_time":time(6, 0, 0,),"turn_off_time":time(17, 0, 0,)},
         {"name":"living room","state":False,"turn_on_time":"","turn_off_time":""},
@@ -22,9 +23,15 @@ class Curtain(Device):
     #Close curtain using overriding because refines the behavior of the method in the parent class
     def turn_off(self,name:str=None):
         return super().turn_off(name,CURTAIN)
-    #Get curtains status using overriding because refines the behavior of the method in the parent class
-    def get_status(self):
-        return super().get_status(CURTAIN)
+    #Get curtains status using overriding because refines the behavior of the method in the parent class and
+    # using method overloading because its behavior uses optional parameters that allow to get_status works in different ways
+    def get_status(self, name:str= None):
+        if name == None:
+            return super().get_status(CURTAIN)
+        if name!=None:
+            for i in CURTAIN: 
+                if i["name"]==name:
+                    return i
     #Configure a curtain
     def configure_curtain(self):
         successful=False
@@ -45,11 +52,14 @@ class Curtain(Device):
                 successful
         return successful
 """
-print(CURTAIN)
+#print(CURTAIN)
 curtain=Curtain("room3",None,time(10,20,00),time(13,30,00))
+curtain2=Curtain("")
 #curtain.turn_on()
-curtain.configure_curtain()
-print(CURTAIN)
+#curtain.configure_curtain()
+#print(CURTAIN)
 lista=curtain.get_status()
 print(lista)
+objeto=curtain2.get_status("room1")
+print(objeto)
 """

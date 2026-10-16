@@ -23,9 +23,15 @@ class Thermostat(Device):
     #Turn off a thermostat using overriding because refines the behavior of the method in the parent class
     def turn_off(self,name:str=None):
         return super().turn_off(name,THERMOSTAT)
-    #get thermostats status using overriding because refines the behavior of the method in the parent class
-    def get_status(self):
-        return super().get_status(THERMOSTAT)
+    #get thermostats status using overriding because refines the behavior of the method in the parent class and
+    # using method overloading because its behavior uses optional parameters that allow to get_status works in different ways
+    def get_status(self, name:str= None):
+        if name == None:
+            return super().get_status(THERMOSTAT)
+        if name!=None:
+            for i in THERMOSTAT: 
+                if i["name"]==name:
+                    return i
     #configure thermostat
     def configure_thermostat(self):
         successful=False
