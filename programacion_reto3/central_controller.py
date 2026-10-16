@@ -9,7 +9,7 @@ from datetime import time
 from lightbulb import Lightbulb
 from curtain import Curtain
 from thermostat import Thermostat
-
+valid_rooms = ["room1", "room2", "room3", "living room"]
 class Central_controller:
     #Turn on all devices
     @staticmethod
@@ -70,6 +70,8 @@ class Central_controller:
     @staticmethod
     def configure_curtain(name:str,state:bool=None,turn_on_time_h:int=None,turn_on_time_m:int=None,turn_off_time_h:int=None,turn_off_time_m:int=None):
         try:
+            if name not in valid_rooms:
+                raise ValueError(f"Device '{name}' does not exist.")
             turn_off_time=None
             turn_on_time=None
             if turn_on_time_h != None and turn_on_time_m!= None:
@@ -88,6 +90,8 @@ class Central_controller:
     @staticmethod
     def configure_lightbulb(name:str,state:bool=None,mode:str=None,brightness:float=None):
         try:
+            if name not in valid_rooms:
+                raise ValueError(f"Device '{name}' does not exist.")
             validate_mode=None
             validate_brightness=None
             if mode == "white" or mode == "warm":
@@ -105,6 +109,8 @@ class Central_controller:
     @staticmethod
     def configure_thermostat (name:str,state:bool=None,temperature:float=None,turn_on_time_h:int=None,turn_on_time_m:int=None,turn_off_time_h:int=None,turn_off_time_m:int=None):
         try:
+            if name not in valid_rooms:
+                raise ValueError(f"Device '{name}' does not exist.")
             turn_off_time=None
             turn_on_time=None
             validate_temperature=None
@@ -140,11 +146,12 @@ class Central_controller:
                 
             
 
-            
-#Central_controller.turn_on_all()
-#Central_controller.turn_off_all()
-#Central_controller.configure_curtain("room3",None,None,None,14,5)
-#Central_controller.configure_lightbulb("room3",None,"warm",80)
-#Central_controller.configure_thermostat ("room3",None,None,None,None,21,58)
-#Central_controller.get_status_all()
-#Central_controller.controller_test()
+"""            
+Central_controller.turn_on_all()
+Central_controller.turn_off_all()
+Central_controller.configure_curtain("room3",None,None,None,14,5)
+Central_controller.configure_lightbulb("room3",None,"warm",80)
+Central_controller.configure_thermostat ("room3",None,None,None,None,21,58)
+Central_controller.get_status_all()
+Central_controller.controller_test()
+""" 
