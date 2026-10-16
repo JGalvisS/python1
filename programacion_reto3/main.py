@@ -45,7 +45,7 @@ class SmartHomeApp:
             container,
             text="SMART HOME CONTROL",
             style="Title.TLabel",
-        ).pack(pady=(0, 12))
+        ).pack(pady=(0, 2))
         
         
         # Section Curtain
@@ -101,7 +101,7 @@ class SmartHomeApp:
         
         #Global system buttons
         actions = ttk.Frame(container)
-        actions.pack(fill="x", pady=(14, 4))
+        actions.pack(fill="x", pady=(3, 4))
 
         ttk.Button(
             actions,
@@ -122,6 +122,13 @@ class SmartHomeApp:
             text="SYSTEM STATUS",
             style="Action.TButton",
             command=Central_controller.get_status_all,
+        ).pack(fill="x", pady=3)
+        
+        ttk.Button(
+            actions,
+            text="SYSTEM TEST",
+            style="Action.TButton",
+            command=Central_controller.controller_test,
         ).pack(fill="x", pady=3)
 
     def _add_device_section(

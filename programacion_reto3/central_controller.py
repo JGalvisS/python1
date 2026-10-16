@@ -147,4 +147,4 @@ class Central_controller:
 #Central_controller.configure_lightbulb("room3",None,"warm",80)
 #Central_controller.configure_thermostat ("room3",None,None,None,None,21,58)
 #Central_controller.get_status_all()
-Central_controller.controller_test()
+#Central_controller.controller_test()

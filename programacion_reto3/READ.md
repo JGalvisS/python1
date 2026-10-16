@@ -9,7 +9,7 @@
 
 ## Project Description
 
-Smart Home Control is a desktop application built with Python and Tkinter. Its graphical interface lets users configure and control lightbulbs, curtains, and a thermostat. The interface validates user input and sends the selected values to the central controller.
+Smart Home Control is a desktop application built with Python and Tkinter. Its graphical interface lets users configure and control lightbulbs, curtains, and a thermostat. The interface validates user input and sends the selected values to the central controller.The structure implement overloading methods and override methods let a different behavior for each case.
 
 ## Project Structure
 
